@@ -1,31 +1,24 @@
-#include<cstdio>
-
-int func(int x)
+#include<stdio.h>
+int main()
 {
-    if(x%2)
-        x=3*x+1;
-        x=x/2;
-    else
-        x/=2;
-	return x;
-}
-
-main()
-{
-	long long a,limit,n;
-	int num=0;
+    long long a,b,n;
+    int number=0;
 	int s=0;
-	while(scanf("%lld%lld",&a,&limit)&&(a!=-1||limit!=-1))
-	{
-		num++;
+    while(scanf("%lld%lld",&a,&b)&&(a!=-1||b!=-1))
+    {
+        number++;
 		s=1;
 		n=a;
-		while(n>1)
-		{
-			n=func(n);
-			if(n>limit)break;
-			s++;
-		}
-		printf("Case %d: A = %lld, limit = %lld, number of terms = %d\n",num,a,limit,s);
-	}
+        while(n>1)
+        {
+            if(n%2)
+                n=n*3+1;
+            else
+                n/=2;
+            if(n>b)break;
+            s++;
+        }
+        printf("Case %d: A = %lld, limit = %lld, number of terms = %d\n",number,a,b,s);
+    }
+    return 0;
 }
