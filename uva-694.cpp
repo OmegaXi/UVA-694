@@ -2,10 +2,11 @@
 
 int func(int x)
 {
-    if(x%2==0)
+    if(x%2)
+        x=3*x+1;
         x=x/2;
     else
-        x=3*x+1;
+        x/=2;
 	return x;
 }
 
