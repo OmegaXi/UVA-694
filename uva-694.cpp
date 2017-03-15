@@ -2,19 +2,13 @@
 
 using namespace std;
 
-int t;
-
 int func(int x)
 {
-t=1;
-	while(x!=1)
-	{
-		if(x%2==0)
-			x=x/2;
-		else x=3*x+1;
-		t++;
-	}
-	return t;
+    if(x%2==0)
+        x=x/2;
+    else
+        x=3*x+1;
+	return x;
 }
 
 main()
@@ -23,11 +17,15 @@ main()
 		while((cin>>a>>limit)&&(a!=-1||limit!=-1))
 		{
 			int count=1;
-			for(int i=1;;i++)
+			int n=a;
+			int numofterms=1;
+			while(n>1)
 			{
-				if(func(m)>limit)
+				n=func(n);
+				numofterms++;
+				if(n>limit)
 					break;
 			}
-			cout<<"Case "<<count++<<": A= "<<a<<", limit = "<<limit<<", number of terms = "<<i<<endl;
+			cout<<"Case "<<count++<<": A= "<<a<<", limit = "<<limit<<", number of terms = "<<numofterms<<endl;
 		}
 }
